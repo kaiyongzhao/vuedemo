@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="../JS/jquery-3.4.0.min.js"></script>
+    <script src="../Plugin/Vue/vue.js"></script>
+    <style type="text/css">
+        .active {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <p v-bind:class="{active:isActive}" @click="pClick">Hello World</p>
+        <hr />
+        <p v-bind:class="[className]" @click="pClickTwo">你好！</p>
+        <hr />
+        <p v-bind:style="styleObj">武汉</p>
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                isActive: false,
+                className: "",
+                styleObj: {
+                    color: "red",
+                    fontSize: "20px",
+                    textDecoration:"underline"
+                }
+            },
+            methods: {
+                pClick: function () {
+                    this.isActive = !this.isActive;
+                },
+                pClickTwo: function () {
+                    this.className ? this.className = "" : this.className = "active"
+                }
+            }
+        });
+    </script>
+</body>
+</html>

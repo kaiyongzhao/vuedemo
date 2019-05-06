@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="../JS/jquery-3.4.0.min.js"></script>
+    <script src="../Plugin/Vue/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p ref="hello" @click="itemClick">
+            你点我
+        </p>
+    </div>
+    <script>
+            var app = new Vue({
+                el: "#app",
+                methods: {
+                    itemClick: function () {
+                        //this.$refs 表示当前挂载的dom下面所有的引用，hello是要找的引用名字
+                        alert(this.$refs.hello.innerHTML);
+                    }
+                }
+            });
+
+    </script>
+</body>
+</html>

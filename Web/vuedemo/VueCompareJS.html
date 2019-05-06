@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Vue和JavaScript对比</title>
+    <meta charset="utf-8" />
+    <script src="../JS/jquery-3.4.0.min.js"></script>
+    <script src="../Plugin/Vue/vue.js"></script>
+</head>
+<body>
+    <div>
+        <!--<div style="width:400px;float:left;margin-left:200px;cursor:pointer; display:none">
+            <div id="output">0</div>
+            <button id="increment">JS-Counter</button>
+        </div>-->
+        <div id="app" style="width:400px;float:left;display:block">
+            <div style="cursor:pointer">{{count}}</div>
+            <button v-on:click="countNum">Vue-Counter</button>
+        </div>
+        </div>
+    <script>
+            var counter = 0;
+            $(document).ready(function () {
+                var $output = $('#output');
+                $('#increment').click(function () {
+                    counter++;
+                    $output.html(counter);
+                });
+            });
+
+            var app = new Vue({
+                el: "#app",
+                data: {
+                    count: 0,
+                },
+                methods: {
+                    countNum: function () {
+                        this.count++;
+                    }
+                }
+            });
+    </script>
+</body>
+</html>

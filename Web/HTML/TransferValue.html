@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="../JS/jquery-3.4.0.min.js"></script>
+    <script src="../Plugin/Vue/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <item-Li 
+                     v-bind:content="item" 
+                     v-bind:index="index"
+                     v-for="(item,index) in list" 
+                     v-on:delete="clearItem">
+            </item-Li>
+        </ul>
+    </div>
+    <script>
+        var zjLi = {
+            props: ["content","index"],
+            template: "<li v-on:click='liClick'>{{content}}</li>",
+            methods: {
+                liClick: function () {
+                    //alert(this.content);  //输出父组件传过来的数据
+                    this.$emit("delete",this.index);//监听事件、参数
+                }
+            }
+        };
+        var app = new Vue({
+            el: "#app",
+            components: {
+                itemLi: zjLi
+            },
+            methods: {
+                clearItem: function (index) {
+                    this.list.splice(index,1);
+                }
+            },
+            data: {
+                list: ["111", "22"],
+            }
+        });
+    </script>
+</body>
+</html>

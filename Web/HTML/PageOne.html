@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>组件</title>
+	<meta charset="utf-8" />
+    <script src="../JS/jquery-3.4.0.min.js"></script>
+    <script src="../Plugin/Vue/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <item-li v-bind:content="item" v-for="item in list">
+            </item-li>
+        </ul>
+        <p pre="hello" @click="itemClick">
+            你点我干啥
+        </p>
+    </div>
+    <script>
+        //全局组件
+        Vue.component("item-li", {
+            props: ["content"],
+            template: "<li>{{content}}</li>",
+        });
+
+        //局部组件
+        //var parcialItem = {
+        //    props: ["content"],
+        //    template: "<li>{{content}}</li>",
+        //};
+
+        var app = new Vue({
+            el: "#app",
+            components: {
+                //itemLi: parcialItem //注册局部组件
+            },
+            data: {
+                list:["第一行","第二行","第三行"]
+            }
+        })
+       
+    </script>   
+</body>
+</html>

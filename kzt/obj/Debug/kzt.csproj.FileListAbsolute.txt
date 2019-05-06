@@ -1,0 +1,7 @@
+E:\desktop\kzt\kzt\kzt\bin\Debug\kzt.exe.config
+E:\desktop\kzt\kzt\bin\Debug\kzt.exe.config
+E:\desktop\kzt\kzt\bin\Debug\kzt.exe
+E:\desktop\kzt\kzt\bin\Debug\kzt.pdb
+E:\desktop\kzt\kzt\obj\Debug\kzt.csprojResolveAssemblyReference.cache
+E:\desktop\kzt\kzt\obj\Debug\kzt.exe
+E:\desktop\kzt\kzt\obj\Debug\kzt.pdb

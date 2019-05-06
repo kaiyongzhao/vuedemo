@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>动态绑定</title>
+	<meta charset="utf-8" />
+    <script src="../JS/jquery-3.4.0.min.js"></script>
+    <script src="../Plugin/Vue/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div>
+            {{content}}
+        </div>
+        <p>
+            <input type="text" v-model="inputValue" />
+            <button v-on:click="btnClick">提交</button>
+            <ul>
+                <li v-for="item in list">{{item}}</li>
+            </ul>
+        </p>
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                list: [],
+                inputValue: "",
+                content:"hello word"
+            },
+            methods: {
+                btnClick: function () {
+                    this.list.push(this.inputValue);
+                    this.inputValue = "";
+                }
+            }
+        })
+
+        setTimeout(function () {
+            app.content = "aaa";
+        }, 2000);
+    </script>
+</body>
+</html>
